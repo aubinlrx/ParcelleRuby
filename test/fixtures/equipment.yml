@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  label: MyString
+  modele: MyText
+  marque: MyText
+  achat: MyText
+  equipment_type: 
+
+two:
+  label: MyString
+  modele: MyText
+  marque: MyText
+  achat: MyText
+  equipment_type: 

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  surface: MyText
+  commune: MyText
+  section: 
+  numero: 
+  gps: MyText
+  location: 
+  plot: 
+
+two:
+  surface: MyText
+  commune: MyText
+  section: 
+  numero: 
+  gps: MyText
+  location: 
+  plot: 
