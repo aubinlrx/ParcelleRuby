@@ -1,0 +1,24 @@
+<% if @users.empty? %>
+	<h3>Aucun utilisateur en base de donnée</h3>
+<% else %> 
+	<% @users.each do |user| %>
+		<ul>
+			<li>
+				<%= user.login%> 
+			</li>
+			<li>
+				<%= user.password %>
+			</li>
+			<li>
+				<%= user.email %>
+			</li>
+			<li>
+				<%= link_to "Edit", edit_user_path(user)%>
+			</li>
+			<li>
+				<%= link_to "Delete", user, :method => :delete %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
+<%= link_to "Create", new_user_path %>
