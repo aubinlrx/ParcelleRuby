@@ -6,8 +6,8 @@ ParcelleRuby::Application.routes.draw do
 
   resources :workers 
   
-  resources :work_types do
-    resources :works
+  resources :works do
+    resources :work_types
   end
   
   resources :tasks
@@ -16,8 +16,8 @@ ParcelleRuby::Application.routes.draw do
     resources :plot_informations 
   end
   
-  resouces :equipments do 
-    resouces :equipment_types
+  resources :equipments do 
+    resources :equipment_types
   end
   
   

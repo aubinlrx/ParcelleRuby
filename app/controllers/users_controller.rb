@@ -10,14 +10,17 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+		@group = Group.all
 	end
 
 	def edit
     	@user = User.find(params[:id])
+    	@group = Group.all
     end
 
 	def create
     	@user = User.new(params[:user])
+    	@group = Group.all
 
     	respond_to do |format|
 	    	if @user.save
@@ -32,6 +35,7 @@ class UsersController < ApplicationController
 
  	def update
   		@user = User.find(params[:id])
+  		@group = Group.all
  
 	  	respond_to do |format|
 	    	if @user.update_attributes(params[:user])
@@ -48,6 +52,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
+		@group = Group.all
 		
 		respond_to do |format|
 			if @user.destroy

@@ -11,28 +11,10 @@
     </ul>  
   </div>  
   <% end %> 
-  
-  <p>
-  	<label>Login: </label>
-  	<%= f.text_field :login %>
-  </p>
-  <p>
-  	<label>Password: </label>
-  	<%= f.text_field :password %>
-  </p>
-  <p>
-  	<label>Password Confirmation: </label>
-  	<%= f.text_field :password_confirmation %>
-  </p>
-  <p>
-  	<label>Email : </label>
-  	<%= f.text_field :email %>
-  </p>
-  <p>
-  	<label>Email Confirmation</label>
-  	<%= f.text_field :email_confirmation %>
-  </p>
-  <p>
+
+  #:region => regions exposes the regions array as a local variable in the partial
+  <%= render :partial => f, :locals => { :group => @group } %>
+
   <%= f.submit "Create" %>
-  </p>
+
 <% end %>
