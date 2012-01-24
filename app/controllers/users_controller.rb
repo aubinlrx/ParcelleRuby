@@ -52,7 +52,6 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
-		@group = Group.all
 		
 		respond_to do |format|
 			if @user.destroy
