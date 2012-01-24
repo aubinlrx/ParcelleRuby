@@ -1,0 +1,22 @@
+<h1>Edition d'un utilisateur</h1>
+<%= form_for @group, :url => { :action => "update" }, :html => {:class => "form_update"} do |f| %>
+  
+  <% if @group.errors.any? %>  
+  <div id="errorExplanation">  
+    <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>  
+    <ul>  
+    <% @group.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>  
+  <% end %> 
+  
+  <p>
+  	<label>Name: </label>
+  	<%= f.text_field :name %>
+  </p>
+  <p>
+  <%= f.submit "Create" %>
+  </p>
+<% end %>

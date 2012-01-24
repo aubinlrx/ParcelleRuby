@@ -1,0 +1,2 @@
+module PlotInformationsHelper
+end

@@ -1,5 +1,25 @@
 ParcelleRuby::Application.routes.draw do
+  root :to => 'users#index'
+  
+  resources :groups
   resources :users
+
+  resources :workers 
+  
+  resources :work_types do
+    resources :works
+  end
+  
+  resources :tasks
+  
+  resources :plots do 
+    resources :plot_informations 
+  end
+  
+  resouces :equipments do 
+    resouces :equipment_types
+  end
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

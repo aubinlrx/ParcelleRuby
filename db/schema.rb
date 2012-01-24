@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120119185815) do
+ActiveRecord::Schema.define(:version => 20120123205440) do
 
   create_table "equipment", :force => true do |t|
     t.string   "label"
@@ -25,26 +25,19 @@ ActiveRecord::Schema.define(:version => 20120119185815) do
 
   add_index "equipment", ["equipment_type_id"], :name => "index_equipment_on_equipment_type_id"
 
-  create_table "equipment_tasks", :force => true do |t|
-    t.integer  "equiment_id"
-    t.integer  "task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "equipment_tasks", ["equiment_id"], :name => "index_equipment_tasks_on_equiment_id"
-  add_index "equipment_tasks", ["task_id"], :name => "index_equipment_tasks_on_task_id"
-
   create_table "equipment_types", :force => true do |t|
     t.string   "label"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "equipments_tasks", :id => false, :force => true do |t|
+    t.integer "equipment_id"
+    t.integer "task_id"
+  end
+
   create_table "groups", :force => true do |t|
     t.text     "name"
-    t.text     "created"
-    t.text     "modified"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
