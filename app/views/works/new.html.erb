@@ -1,0 +1,20 @@
+<h1>Creation d'un utilisateur</h1>
+<%= form_for @work, :url => { :action => "create" }, :html => {:class => "form_new"} do |f| %>
+  
+  <% if @work.errors.any? %>  
+  <div id="errorExplanation">  
+    <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>  
+    <ul>  
+    <% @work.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>  
+  <% end %> 
+
+  <%= render :partial => f, :locals => { :work_type => @work_type } %>
+	
+  <p>
+  	<%= f.submit "Create" %>
+  </p>
+<% end %>

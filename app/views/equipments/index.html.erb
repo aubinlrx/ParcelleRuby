@@ -1,0 +1,27 @@
+<% if @equipments.empty? %>
+	<h3>Aucun equipement en base de donnée</h3>
+<% else %> 
+	<% @equipments.each do |equipment| %>
+		<ul>
+			<li>
+				<%= equipment.label%> 
+			</li>
+			<li>
+				<%= equipment.modele %>
+			</li>
+			<li>
+				<%= equipment.marque %>
+			</li>
+			<li>
+				<%= equipment.achat %>
+			</li>
+			<li>
+				<%= link_to "Edit", edit_equipment_path(equipment)%>
+			</li>
+			<li>
+				<%= link_to "Delete", equipment, :method => :delete %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
+<%= link_to "Create", new_equipment_path %>

@@ -6,22 +6,25 @@ class EquipmentsController < ApplicationController
 
 	def show
 		@equipment = Equipment.find(params[:id])
+		@equipment_type = EquipmentType.find(@equipment.equipment_type_id)
 	end
 
 	def new
 		@equipment = Equipment.new
-
+		@equipment_type = EquipmentType.all
 	end
 
 	def edit
 		@equipment = Equipment.find(params[:id])
+		@equipment_type = EquipmentType.all
 	end
 
 	def create
 		@equipment = Equipment.new(params[:equipment])
-
+    @equipment_type = EquipmentType.all
+    
 		respond_to do |format|
-			if @equipment.save	
+			if @equipment.save
 				format.html { redirect_to @equipment }
 			else
 				format.html { render :action => "new" }
@@ -31,6 +34,7 @@ class EquipmentsController < ApplicationController
 
 	def update
 		@equipment = Equipment.find(params[:id])
+    @equipment_type = EquipmentType.all
 
 		respond_to do |format|
 			if @equipment.update_attributes(params[:equipment])

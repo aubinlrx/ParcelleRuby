@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120123205440) do
+ActiveRecord::Schema.define(:version => 20120125120620) do
 
   create_table "equipment", :force => true do |t|
     t.string   "label"
-    t.text     "modele"
-    t.text     "marque"
-    t.text     "achat"
+    t.string   "modele"
+    t.string   "marque"
+    t.string   "achat"
     t.integer  "equipment_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -112,11 +112,11 @@ ActiveRecord::Schema.define(:version => 20120123205440) do
 
   create_table "works", :force => true do |t|
     t.string   "label"
-    t.integer  "worktype_id"
+    t.integer  "work_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "works", ["worktype_id"], :name => "index_works_on_worktype_id"
+  add_index "works", ["work_type_id"], :name => "index_works_on_work_type_id"
 
 end

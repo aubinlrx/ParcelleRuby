@@ -1,0 +1,18 @@
+<% if @work_types.empty? %>
+	<h3>Aucun equipement en base de donnée</h3>
+<% else %> 
+	<% @work_types.each do |work_type| %>
+		<ul>
+			<li>
+				<%= work_type.label%> 
+			</li>
+			<li>
+				<%= link_to "Edit", edit_work_type_path(work_type)%>
+			</li>
+			<li>
+				<%= link_to "Delete", work_type, :method => :delete %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
+<%= link_to "Create", new_work_type_path %>

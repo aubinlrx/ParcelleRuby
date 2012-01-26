@@ -1,0 +1,20 @@
+<h1>Edition d'un utilisateur</h1>
+<%= form_for @equipment, :url => { :action => "update" }, :html => {:class => "form_update"} do |f| %>
+  
+  <% if @equipment.errors.any? %>  
+  <div id="errorExplanation">  
+    <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>  
+    <ul>  
+    <% @equipment.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>  
+  <% end %> 
+  
+  <%= render :partial => f, :locals => { :equipment_type => @equipment_type } %>
+
+  <p>
+  <%= f.submit "Create" %>
+  </p>
+<% end %>

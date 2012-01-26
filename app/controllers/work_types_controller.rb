@@ -1,28 +1,28 @@
 class WorkTypesController < ApplicationController
 
 	def index
-		@workTypes = WorkType.all
+		@work_types = WorkType.all
 	end
 
 	def show
-		@workType = WorkType.find(params[:id])
+		@work_type = WorkType.find(params[:id])
 	end
 
 	def new
-		@workType = WorkType.new
+		@work_type = WorkType.new
 
 	end
 
 	def edit
-		@workType = WorkType.find(params[:id])
+		@work_type = WorkType.find(params[:id])
 	end
 
 	def create
-		@workType = WorkType.new(params[:workType])
+		@work_type = WorkType.new(params[:work_type])
 
 		respond_to do |format|
-			if @workType.save	
-				format.html { redirect_to @workType }
+			if @work_type.save	
+				format.html { redirect_to @work_type }
 			else
 				format.html { render :action => "new" }
 			end	
@@ -30,25 +30,25 @@ class WorkTypesController < ApplicationController
 	end
 
 	def update
-		@workType = WorkType.find(params[:id])
+		@work_type = WorkType.find(params[:id])
 
 		respond_to do |format|
-			if @workType.update_attributes(params[:workType])
-				format.html { redirect_to @workType }
+			if @work_type.update_attributes(params[:work_type])
+				format.html { redirect_to @work_type }
 			else
-				format.html { redirect_to workTypes_path }
+				format.html { redirect_to work_types_path }
 			end
 		end
 	end
 
 	def destroy
-		@workType = WorkType.find(params[:id])
+		@work_type = WorkType.find(params[:id])
 
 		respond_to do |format|
-			if @workType.destroy
-				format.html { redirect_to workTypes_url }
+			if @work_type.destroy
+				format.html { redirect_to work_types_url }
 			else
-				format.html { redirect_to workTypes_url }
+				format.html { redirect_to work_types_url }
 			end
 		end
 	end

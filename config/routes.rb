@@ -6,19 +6,17 @@ ParcelleRuby::Application.routes.draw do
 
   resources :workers 
   
-  resources :works do
-    resources :work_types
-  end
+  resources :works
+  resources :work_types
   
   resources :tasks
   
-  resources :plots do 
-    resources :plot_informations 
-  end
+  resources :plots 
+  resources :plot_informations 
+
   
-  resources :equipments do 
-    resources :equipment_types
-  end
+  resources :equipments
+  resources :equipment_types
   
   
   # The priority is based upon order of creation:

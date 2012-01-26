@@ -2,10 +2,10 @@ class CreateWorks < ActiveRecord::Migration
   def change
     create_table :works do |t|
       t.string :label
-      t.references :worktype
+      t.references :work_type
 
       t.timestamps
     end
-    add_index :works, :worktype_id
+    add_index :works, :work_type_id
   end
 end

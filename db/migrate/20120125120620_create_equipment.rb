@@ -2,9 +2,9 @@ class CreateEquipment < ActiveRecord::Migration
   def change
     create_table :equipment do |t|
       t.string :label
-      t.text :modele
-      t.text :marque
-      t.text :achat
+      t.string :modele
+      t.string :marque
+      t.string :achat
       t.references :equipment_type
 
       t.timestamps

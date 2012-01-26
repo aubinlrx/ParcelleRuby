@@ -10,7 +10,7 @@ class PlotsController < ApplicationController
 
 	def new
 		@plot = Plot.new
-
+    plot_information = @plot.build_plot_information
 	end
 
 	def edit

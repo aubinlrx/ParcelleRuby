@@ -1,28 +1,28 @@
-class EquipmentTypesController < ApplicationController
+ class EquipmentTypesController < ApplicationController
 
 	def index
-		@equipmentTypes = EquipmentType.all
+		@equipment_types = EquipmentType.all
 	end
 
 	def show
-		@equipmentType = EquipmentType.find(params[:id])
+		@equipment_type = EquipmentType.find(params[:id])
 	end
 
 	def new
-		@equipmentType = EquipmentType.new
+		@equipment_type = EquipmentType.new
 
 	end
 
 	def edit
-		@equipmentType = EquipmentType.find(params[:id])
+		@equipment_type = EquipmentType.find(params[:id])
 	end
 
 	def create
-		@equipmentType = EquipmentType.new(params[:equipmentType])
+		@equipment_type = EquipmentType.new(params[:equipment_type])
 
 		respond_to do |format|
-			if @equipmentType.save	
-				format.html { redirect_to @equipmentType }
+			if @equipment_type.save	
+				format.html { redirect_to @equipment_type }
 			else
 				format.html { render :action => "new" }
 			end	
@@ -30,25 +30,25 @@ class EquipmentTypesController < ApplicationController
 	end
 
 	def update
-		@equipmentType = EquipmentType.find(params[:id])
+		@equipment_type = EquipmentType.find(params[:id])
 
 		respond_to do |format|
-			if @equipmentType.update_attributes(params[:equipmentType])
-				format.html { redirect_to @equipmentType }
+			if @equipment_type.update_attributes(params[:equipment_type])
+				format.html { redirect_to @equipment_type }
 			else
-				format.html { redirect_to equipmentTypes_path }
+				format.html { redirect_to equipment_types_path }
 			end
 		end
 	end
 
 	def destroy
-		@equipmentType = EquipmentType.find(params[:id])
+		@equipment_type = EquipmentType.find(params[:id])
 
 		respond_to do |format|
-			if @equipmentType.destroy
-				format.html { redirect_to equipmentTypes_url }
+			if @equipment_type.destroy
+				format.html { redirect_to equipment_types_url }
 			else
-				format.html { redirect_to equipmentTypes_url }
+				format.html { redirect_to equipment_types_url }
 			end
 		end
 	end

@@ -1,0 +1,33 @@
+<% if @plot_informations.empty? %>
+	<h3>Aucune tache en base de donnée</h3>
+<% else %> 
+	<% @plot_informations.each do |plot_information| %>
+		<ul>
+			<li>
+				<%= plot_information.surface %> 
+			</li>
+			<li>
+				<%= plot_information.commune %> 
+			</li>
+			<li>
+				<%= plot_information.section %> 
+			</li>
+			<li>
+				<%= plot_information.numero %> 
+			</li>
+			<li>
+				<%= plot_information.gps %> 
+			</li>
+			<li>
+				<%= plot_information.location %> 
+			</li>
+			<li>
+				<%= link_to "Edit", edit_plot_information_path(plot_information)%>
+			</li>
+			<li>
+				<%= link_to "Delete", plot_information, :method => :delete %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
+<%= link_to "Create", new_plot_information_path %>

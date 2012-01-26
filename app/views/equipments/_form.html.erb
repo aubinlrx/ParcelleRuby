@@ -1,0 +1,20 @@
+  <p>
+  	<%= form.label :label %>
+  	<%= form.text_field :label %>
+  </p>
+  <p>
+  	<%= form.label :marque %>
+  	<%= form.text_field :marque %>
+  </p>
+  <p>
+  	<%= form.label :modele %>
+  	<%= form.text_field :modele %>
+  </p>
+  <p>
+  	<%= form.label :achat %>
+  	<%= form.text_field :achat %>
+  </p>
+  <p>
+    <%= form.label :equipment_type_id %>
+    <%= collection_select(:equipment, :equipment_type_id, equipment_type, :id, :label, {:prompt => 'None'}) %>
+  </p>

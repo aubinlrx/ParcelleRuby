@@ -1,0 +1,37 @@
+<h1>Creation d'une parcelle</h1>
+<%= form_for @plot do |f| %>
+  <p>
+  	<%= f.label :label %>
+  	<%= f.text_field :label %>
+  </p>
+
+  <%= f.fields_for :plot_information do |builder| %>
+	  <p>
+	  	<%= builder.label :surface %>
+	  	<%= builder.text_field :surface %>
+	  </p>
+	  <p>
+	  	<%= builder.label :commune %>
+	  	<%= builder.text_field :commune %>
+	  </p>
+	  <p>
+	  	<%= builder.label :section %>
+	  	<%= builder.text_field :section %>
+	  </p>
+	  <p>
+	  	<%= builder.label :numero %>
+	  	<%= builder.text_field :numero %>
+	  </p>
+	  <p>
+	  	<%= builder.label :gps %>
+	  	<%= builder.text_field :gps %>
+	  </p>
+	  <p>
+	  	<%= builder.label :location %>
+	  	<%= builder.text_field :location %>
+	  </p>
+  <% end %>
+
+  <%= f.submit "Create" %>
+
+<% end %>

@@ -1,0 +1,18 @@
+<% if @tasks.empty? %>
+	<h3>Aucune tache en base de donnée</h3>
+<% else %> 
+	<% @tasks.each do |task| %>
+		<ul>
+			<li>
+				<%= task.date %> 
+			</li>
+			<li>
+				<%= link_to "Edit", edit_task_path(task)%>
+			</li>
+			<li>
+				<%= link_to "Delete", task, :method => :delete %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
+<%= link_to "Create", new_task_path %>

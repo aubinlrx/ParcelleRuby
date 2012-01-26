@@ -1,0 +1,8 @@
+  <p>
+  	<%= form.label :label %>
+  	<%= form.text_field :label %>
+  </p>
+  <p>
+    <%= form.label :work_type_id %>
+    <%= collection_select(:work, :work_type_id, work_type, :id, :label, {:prompt => 'None'}) %>
+  </p>

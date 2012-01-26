@@ -1,0 +1,19 @@
+<h1>Creation d'une tache</h1>
+<%= form_for @plot_information, :url => { :action => "create" }, :html => {:class => "form_new"} do |f| %>
+  
+  <% if @plot_information.errors.any? %>  
+  <div id="errorExplanation">  
+    <h2><%= pluralize(@plot_information.errors.count, "error") %> prohibited this plot information from being saved:</h2>  
+    <ul>  
+    <% @plot_information.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>  
+  <% end %> 
+
+  <%= render :partial => f %>
+
+  <%= f.submit "Create" %>
+
+<% end %>

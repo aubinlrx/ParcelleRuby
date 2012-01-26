@@ -2,14 +2,14 @@
 
 one:
   label: MyString
-  modele: MyText
-  marque: MyText
-  achat: MyText
+  modele: MyString
+  marque: MyString
+  achat: MyString
   equipment_type: 
 
 two:
   label: MyString
-  modele: MyText
-  marque: MyText
-  achat: MyText
+  modele: MyString
+  marque: MyString
+  achat: MyString
   equipment_type: 

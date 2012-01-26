@@ -1,0 +1,21 @@
+<% if @workers.empty? %>
+	<h3>Aucun ouvrier en base de donnée</h3>
+<% else %> 
+	<% @workers.each do |worker| %>
+		<ul>
+			<li>
+				<%= worker.nom %> 
+			</li>
+			<li>
+				<%= worker.prenom %> 
+			</li>
+			<li>
+				<%= link_to "Edit", edit_worker_path(worker)%>
+			</li>
+			<li>
+				<%= link_to "Delete", worker, :method => :delete %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
+<%= link_to "Create", new_worker_path %>
