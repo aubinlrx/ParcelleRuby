@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125120620) do
+ActiveRecord::Schema.define(:version => 20120308092927) do
 
   create_table "equipment", :force => true do |t|
     t.string   "label"
@@ -31,16 +31,23 @@ ActiveRecord::Schema.define(:version => 20120125120620) do
     t.datetime "updated_at"
   end
 
-  create_table "equipments_tasks", :id => false, :force => true do |t|
-    t.integer "equipment_id"
-    t.integer "task_id"
-  end
-
   create_table "groups", :force => true do |t|
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "join_tables", :force => true do |t|
+    t.integer  "plot_id"
+    t.integer  "work_id"
+    t.integer  "worker_id"
+    t.integer  "equipment_id"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "join_tables", ["plot_id", "work_id", "worker_id", "equipment_id", "task_id"], :name => "index_jointure", :unique => true
 
   create_table "plot_informations", :force => true do |t|
     t.text     "surface"
@@ -62,31 +69,17 @@ ActiveRecord::Schema.define(:version => 20120125120620) do
     t.datetime "updated_at"
   end
 
-  create_table "plots_tasks", :id => false, :force => true do |t|
-    t.integer "plot_id"
-    t.integer "task_id"
-  end
-
   create_table "tasks", :force => true do |t|
-    t.text     "date"
+    t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tasks_workers", :id => false, :force => true do |t|
-    t.integer "task_id"
-    t.integer "worker_id"
-  end
-
-  create_table "tasks_works", :id => false, :force => true do |t|
-    t.integer "task_id"
-    t.integer "work_id"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "login"
-    t.string   "password"
-    t.text     "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.string   "email"
     t.integer  "group_id"
     t.integer  "disabled"
     t.text     "created"

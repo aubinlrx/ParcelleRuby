@@ -1,4 +1,48 @@
-  <p>
-  	<%= form.label :date %>
-  	<%= form.text_field :date %>
-  </p>
+  <div class="field">
+    <%= form.label :date %><br />
+    <%= date_select(:task, :date) %>
+  </div>
+  
+  <div class="field">
+	<h4>Work :</h4>
+	<ul>
+	<% Work.all.each do |w| -%>
+	  	<li>
+    		<label><%= check_box_tag :work_ids, w.id, @task.works.include?(w), :name => 'task[work_ids][]' %> <%= w.label %></label>
+		</li>
+	<% end -%>
+	</ul>
+  </div>
+  
+  <div class="field">
+	<h4>Plot :</h4>
+	<ul>
+	<% Plot.all.each do |p| -%>
+	  	<li>
+    		<label><%= check_box_tag :plot_ids, p.id, @task.plots.include?(p), :name => 'task[plot_ids][]' %> <%= p.label %></label>
+		</li>
+	<% end -%>
+	</ul>
+  </div>
+
+  <div class="field">
+	<h4>Workers :</h4>
+	<ul>
+	<% Worker.all.each do |w| -%>
+	  	<li>
+    		<label><%= check_box_tag :worker_ids, w.id, @task.workers.include?(w), :name => 'task[worker_ids][]' %> <%= w.nom %></label>
+		</li>
+	<% end -%>
+	</ul>
+  </div>
+
+  <div class="field">
+	<h4>Equipment :</h4>
+	<ul>
+	<% Equipment.all.each do |e| -%>
+	  	<li>
+    		<label><%= check_box_tag :equipment_ids, e.id, @task.equipment.include?(e), :name => 'task[equipment_ids][]' %> <%= e.label %></label>
+		</li>
+	<% end -%>
+	</ul>
+  </div>

@@ -7,8 +7,63 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="navbar navbar-fixed-top">
+	 	<div class="navbar-inner">
+	    	<div class="container">
+	         	<a class="brand" href="/">AppParcelle</a>
+				<div class="nav-collapse">
+		            <ul class="nav">
+		              	<li><a href="/tasks">Taches</a></li>
+		              	<li><a href="/tasks/new">Ajouter une tache</a></li>
+		              	<li><a href="#contact">Contact</a></li>
+		            </ul>
+					<% if current_user %>
+					<ul class="nav pull-right">
+						<li><%= link_to "Logout", logout_path %></li>
+					</ul>
+		            <p class="navbar-text pull-right">Logged in as <a href="#"><%= current_user.email %></a></p>
+					<% else %>
+					<ul class="nav pull-right">
+						<li><%= link_to "Se connecter", login_path %></li>
+						<li><%= link_to "S'enregistrer", register_path %></li>
+					</ul>
+					<% end %>
+				</div>
+	        </div>
+	     </div>
+	</div>
+	<div class="container">
+		<div class="span3">
+		   <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">User</li>
+              <li><a href="/users/new">Ajouter utilisateur</a></li>
+              <li><a href="/users">Lister utilisateurs</a></li>
+              <li><a href="/groups/new">Ajouter groupe utilisateur</a></li>
+              <li><a href="/groups">Lister groupes utilisateur</a></li>
+              <li class="nav-header">Ouvrier</li>
+              <li><a href="/workers/new">Ajouter ouvrier</a></li>
+              <li><a href="/workers">Lister ouvriers</a></li>
+              <li class="nav-header">Equipement</li>
+              <li><a href="/equipments/new">Ajouter un equipement</a></li>
+              <li><a href="/equipments">Afficher les equipements</a></li>
+              <li><a href="/equipment_types/new">Ajouter un type d'equipement</a></li>
+              <li><a href="/equipment_types">Afficher les types d'equipement</a></li>
+              <li class="nav-header">Parcelle</li>
+              <li><a href="/plots/new">Ajouter une parcelle</a></li>
+              <li><a href="/plots">Lister les parcelles</a></li>
+              <li class="nav-header">Travaux</li>
+              <li><a href="/works/new">Ajouter un travail</a></li>
+              <li><a href="/works">Lister les travaux</a></li>
+            </ul>
+          </div>
+        </div>
+		<div class="span 12">
+			<% flash.each do |name, msg|%>
+				<%= content_tag :div, msg, :id => "flash_#{name}" %>
+			<% end %>
+			<%= yield %>
+		</div>	
+	</div>
 </body>
 </html>

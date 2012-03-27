@@ -1,18 +1,23 @@
 <% if @groups.empty? %>
 	<h3>Aucun utilisateur en base de donnée</h3>
 <% else %> 
-	<% @groups.each do |group| %>
-		<ul>
-			<li>
-				<%= group.name%> 
-			</li>
-			<li>
-				<%= link_to "Edit", edit_group_path(group)%>
-			</li>
-			<li>
-				<%= link_to "Delete", group, :method => :delete %>
-			</li>
-		</ul>
-	<% end %>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @groups.each do |group| %>
+			<tr>
+				<td><%= group.name %></td>
+				<td><%= link_to "Edit", edit_group_path(group)%></td>
+				<td><%= link_to "Delete", group, :method => :delete %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 <% end %>
 <%= link_to "Create", new_group_path %>

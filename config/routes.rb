@@ -1,5 +1,11 @@
 ParcelleRuby::Application.routes.draw do
-  root :to => 'users#index'
+  root :to => 'users#new'
+  
+  get "login" => "sessions#new", :as => 'login'
+  get "logout" => "sessions#destroy", :as => 'logout'
+  get "register" => 'users#new', :as => 'register'
+  
+  resources :sessions
   
   resources :groups
   resources :users

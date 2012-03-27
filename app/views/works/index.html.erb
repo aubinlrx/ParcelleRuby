@@ -1,18 +1,23 @@
 <% if @works.empty? %>
 	<h3>Aucun travail en base de donnée</h3>
 <% else %> 
-	<% @works.each do |work| %>
-		<ul>
-			<li>
-				<%= work.label%> 
-			</li>
-			<li>
-				<%= link_to "Edit", edit_work_path(work)%>
-			</li>
-			<li>
-				<%= link_to "Delete", work, :method => :delete %>
-			</li>
-		</ul>
-	<% end %>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Label</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @works.each do |work| %>
+			<tr>
+				<td><%= work.label%></td>
+				<td><%= link_to "Edit", edit_work_path(work)%></td>
+				<td><%= link_to "Delete", work, :method => :delete %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 <% end %>
 <%= link_to "Create", new_work_path %>

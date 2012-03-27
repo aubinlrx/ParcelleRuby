@@ -1,21 +1,25 @@
 <% if @workers.empty? %>
 	<h3>Aucun ouvrier en base de donnée</h3>
 <% else %> 
-	<% @workers.each do |worker| %>
-		<ul>
-			<li>
-				<%= worker.nom %> 
-			</li>
-			<li>
-				<%= worker.prenom %> 
-			</li>
-			<li>
-				<%= link_to "Edit", edit_worker_path(worker)%>
-			</li>
-			<li>
-				<%= link_to "Delete", worker, :method => :delete %>
-			</li>
-		</ul>
-	<% end %>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Nom</td>
+					<td>Prenom</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @workers.each do |worker| %>
+				<tr>
+					<td><%= worker.nom %></td>
+					<td><%= worker.prenom %></td>
+					<td><%= link_to "Edit", edit_worker_path(worker)%></td>
+					<td><%= link_to "Delete", worker, :method => :delete %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
 <% end %>
 <%= link_to "Create", new_worker_path %>

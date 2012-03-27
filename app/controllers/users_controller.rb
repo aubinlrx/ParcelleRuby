@@ -24,11 +24,9 @@ class UsersController < ApplicationController
 
     	respond_to do |format|
 	    	if @user.save
-	     	 	format.html { redirect_to @user }
+	     	 	format.html {redirect_to root_url, :notice => 'Signed up!'}
 	    	else
-	      	# This line overrides the default rendering behavior, which
-	      	# would have been to render the "create" view.
-	      		format.html { render :action => "new" }
+	      	format.html {render "new"}
 	    	end
 	    end
     end

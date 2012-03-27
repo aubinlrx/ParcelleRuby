@@ -1,18 +1,23 @@
 <% if @equipment_types.empty? %>
 	<h3>Aucun equipement en base de donnée</h3>
 <% else %> 
-	<% @equipment_types.each do |equipment_type| %>
-		<ul>
-			<li>
-				<%= equipment_type.label%> 
-			</li>
-			<li>
-				<%= link_to "Edit", edit_equipment_type_path(equipment_type)%>
-			</li>
-			<li>
-				<%= link_to "Delete", equipment_type, :method => :delete %>
-			</li>
-		</ul>
-	<% end %>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Label</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @equipment_types.each do |equipment_type| %>
+			<tr>
+				<td><%= equipment_type.label%></td>
+				<td><%= link_to "Edit", edit_equipment_type_path(equipment_type)%></td>
+				<td><%= link_to "Delete", equipment_type, :method => :delete %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 <% end %>
 <%= link_to "Create", new_equipment_type_path %>

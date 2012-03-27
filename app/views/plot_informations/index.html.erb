@@ -1,33 +1,33 @@
 <% if @plot_informations.empty? %>
 	<h3>Aucune tache en base de donnée</h3>
-<% else %> 
-	<% @plot_informations.each do |plot_information| %>
-		<ul>
-			<li>
-				<%= plot_information.surface %> 
-			</li>
-			<li>
-				<%= plot_information.commune %> 
-			</li>
-			<li>
-				<%= plot_information.section %> 
-			</li>
-			<li>
-				<%= plot_information.numero %> 
-			</li>
-			<li>
-				<%= plot_information.gps %> 
-			</li>
-			<li>
-				<%= plot_information.location %> 
-			</li>
-			<li>
-				<%= link_to "Edit", edit_plot_information_path(plot_information)%>
-			</li>
-			<li>
-				<%= link_to "Delete", plot_information, :method => :delete %>
-			</li>
-		</ul>
-	<% end %>
+<% else %>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Surface</td>
+				<td>Commune</td>
+				<td>Section</td>
+				<td>Numero</td>
+				<td>GPS</td>
+				<td>Location</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @plot_informations.each do |plot_information| %>
+			<tr>
+				<td><%= plot_information.surface %></td>
+				<td><%= plot_information.commune %></td>
+				<td><%= plot_information.section %></td>
+				<td><%= plot_information.numero %></td>
+				<td><%= plot_information.gps %></td>
+				<td><%= plot_information.location %></td>
+				<td><%= link_to "Edit", edit_plot_information_path(plot_information)%></td>
+				<td><%= link_to "Delete", plot_information, :method => :delete %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 <% end %>
 <%= link_to "Create", new_plot_information_path %>
