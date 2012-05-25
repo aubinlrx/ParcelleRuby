@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_filter :login_required
 
 	def index
 		@tasks = Task.all
@@ -18,6 +19,7 @@ class TasksController < ApplicationController
 
 	def create
 		@task = Task.new(params[:task])
+		Rails.logger.debug("Ma tache #{@task}")
 
 		respond_to do |format|
 			if @task.save	
